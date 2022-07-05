@@ -5,6 +5,7 @@ platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'FbEasyIntegration' do
+  use_modular_headers!
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -17,11 +18,14 @@ target 'FbEasyIntegration' do
     :fabric_enabled => flags[:fabric_enabled],
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
+    
   )
 
   target 'FbEasyIntegrationTests' do
     inherit! :complete
     # Pods for testing
+   
+
   end
 
   # Enables Flipper.
